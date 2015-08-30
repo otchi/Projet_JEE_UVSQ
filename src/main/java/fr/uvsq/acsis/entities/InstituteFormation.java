@@ -17,9 +17,9 @@ public class InstituteFormation extends Formation implements Serializable{
 	private Long idInstFormation;
 	private String description;
 	
-	public InstituteFormation(String nom, String niveau, Long idInstFormation, String description) {
+	public InstituteFormation(String nom, String niveau,String description) {
 		super(nom, niveau);
-		this.idInstFormation = idInstFormation;
+
 		this.description = description;
 	}
 

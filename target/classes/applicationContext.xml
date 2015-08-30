@@ -48,6 +48,9 @@
 	<bean id="metier_candidature" class="fr.uvsq.acsis.metier.Candidature">
 		<property name="dao" ref="dao" ></property>
 	</bean>
+	<bean id="metier_admin" class="fr.uvsq.acsis.metier.Admin">
+		<property name="dao" ref="dao" ></property>
+	</bean>
 	
 	
 	

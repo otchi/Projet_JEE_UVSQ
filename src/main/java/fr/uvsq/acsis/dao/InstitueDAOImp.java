@@ -198,7 +198,7 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	/**********************************************************/
 	@Override
-	public void setIFormation(InstituteFormation iFormation) {
+	public void addIFormation(InstituteFormation iFormation) {
 		em.persist(iFormation);
 		
 	}

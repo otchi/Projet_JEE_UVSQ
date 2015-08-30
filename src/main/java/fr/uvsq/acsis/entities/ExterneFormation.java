@@ -16,7 +16,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="extention_formation")
+@Table(name="externe_formation")
 public class ExterneFormation extends Formation implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -28,6 +28,7 @@ public class ExterneFormation extends Formation implements Serializable {
 	@NotEmpty
 	@Size(min=4,max=15)
 	private String pays;
+	
 	@ManyToOne
 	@JoinColumn(name="id_curuculium")
 	private Curuculium curuculium;

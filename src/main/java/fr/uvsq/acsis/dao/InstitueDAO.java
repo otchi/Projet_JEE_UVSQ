@@ -61,7 +61,7 @@ public interface InstitueDAO {
 	public ExterneFormation getExtFormation(Long idExtFormation);
 	
 	/****************************************************/	
-	public void setIFormation(InstituteFormation iFormation);
+	public void addIFormation(InstituteFormation iFormation);
 	public void updateIFormation(InstituteFormation iFormation);
 	public void removeIFormation(Long idIFormation);
 	public InstituteFormation getInstituteFormation(Long idIFormation);

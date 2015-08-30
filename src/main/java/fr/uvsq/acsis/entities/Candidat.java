@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import fr.uvsq.acsis.utils.EtatCandidature;
+
 @SuppressWarnings("serial")
 @Entity
 @Table(name="candidat")
