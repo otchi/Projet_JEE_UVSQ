@@ -13,5 +13,10 @@ public interface ICandidature {
 	public void addExperienceProToCV(ExperiencePro experience,Long idCuruculium);
 	public void candidateToFormation(Long idFormation,Long idCandidat);
 	public Candidat getCandidature(Long idCandidature);
+	public void removeCuruculium(Long idCuruculium);
+	public void removeExperiencePro(Long idExperience);
+	public void removeExtFormation(Long idExtFormation);
+	
+	
 	
 }

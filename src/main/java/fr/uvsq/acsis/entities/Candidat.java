@@ -19,8 +19,7 @@ public class Candidat extends Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idCandidat;
-	@OneToOne
-	@JoinColumn(name="id_dossier")
+	@OneToOne(mappedBy="candidat")
 	private Dossier dossier;
 	@ManyToOne
 	@JoinColumn(name="id_formation")

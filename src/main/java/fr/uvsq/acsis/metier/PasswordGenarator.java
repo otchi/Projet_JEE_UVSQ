@@ -23,10 +23,10 @@ public abstract class PasswordGenarator {
 			
 			switch (typeOfChar) {
 			case 0:
-				password.append(STR_MAJ.charAt(RANDOM.nextInt(ALPHABET_BORN + 1)));
+				password.append(STR_MAJ.charAt(RANDOM.nextInt(ALPHABET_BORN )));
 				break;
 			case 1:
-				password.append(STR_MIN.charAt(RANDOM.nextInt(ALPHABET_BORN + 1)));
+				password.append(STR_MIN.charAt(RANDOM.nextInt(ALPHABET_BORN )));
 				break;
 
 			default:

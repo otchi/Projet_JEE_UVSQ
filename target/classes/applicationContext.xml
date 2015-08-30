@@ -38,7 +38,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	<context:annotation-config></context:annotation-config>
 	
-	<bean id="dao" class="fr.uvsq.acsis.dao.InstitueDAOImp">
+	<bean id="dao" class="fr.uvsq.acsis.dao.InstitueDAOImp" >
 	</bean>
 	
 	<bean id="metier_internaute" class="fr.uvsq.acsis.metier.Internaute">
@@ -49,10 +49,6 @@
 		<property name="dao" ref="dao" ></property>
 	</bean>
 	
-	
-	<bean id="metier_purge" class="fr.uvsq.acsis.metier.PurgeDataBase"> 
-		<property name="dao" ref="dao"></property>
-	</bean>
 	
 	
 </beans>

@@ -51,4 +51,24 @@ public class Candidature implements ICandidature {
 		this.dao = dao;
 	}
 
+	@Override
+	public void removeCuruculium(Long idCuruculium) {
+		dao.removeCuruculium(idCuruculium);
+		
+	}
+
+	@Override
+	public void removeExperiencePro(Long idExperience) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void removeExtFormation(Long idExtFormation) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 }

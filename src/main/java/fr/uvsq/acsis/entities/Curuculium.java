@@ -7,8 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @SuppressWarnings("serial")
 @Entity
@@ -24,6 +27,10 @@ public class Curuculium implements Serializable{
 	private Collection<ExperiencePro> experiencePros;
 	
 	private String competance;
+	@NotNull
+	@OneToOne
+	@JoinColumn(name="id_dossier")
+	private Dossier dossier;
 	
 
 	public Curuculium() {
@@ -78,6 +85,15 @@ public class Curuculium implements Serializable{
 	public void setCompetance(String competance) {
 		this.competance = competance;
 	}
+
+	public Dossier getDossier() {
+		return dossier;
+	}
+
+	public void setDossier(Dossier dossier) {
+		this.dossier = dossier;
+	}
+	
 	
 	
 }

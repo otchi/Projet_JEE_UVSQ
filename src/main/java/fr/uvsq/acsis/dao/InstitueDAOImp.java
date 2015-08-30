@@ -34,8 +34,10 @@ public class InstitueDAOImp implements InstitueDAO{
 	}
 
 	@Override
-	public void removeAdmin(Long idAdmin) {	
-		em.remove(getAdmin(idAdmin));
+	public void removeAdmin(Long idAdmin) {
+		Admin admin=getAdmin(idAdmin);
+		em.refresh(admin);
+		em.remove(admin);
 		
 	}
 
@@ -66,8 +68,9 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void removeCandidat(Long idCandidat) {
-		em.remove(
-				em.find(Candidat.class, idCandidat));
+		Candidat candidat=getCandidat(idCandidat);
+		em.refresh(candidat);
+		em.remove(candidat);
 		
 	}
 
@@ -99,7 +102,9 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void removeCuruculium(Long idCuruculium) {
-		em.remove(getCuruculium(idCuruculium));
+		Curuculium curuculium=getCuruculium(idCuruculium);
+		em.refresh(curuculium);
+		em.remove(curuculium);
 		
 	}
 
@@ -126,7 +131,9 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void removeDossier(Long idDossier) {
-		em.remove(getDossier(idDossier));
+		Dossier dossier=getDossier(idDossier);
+		em.refresh(dossier);
+		em.remove(dossier);
 		
 	}
 
@@ -153,6 +160,8 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void removeExperiencePro(Long idExperiencePro) {
+		ExperiencePro experience=getExperiencePro(idExperiencePro);
+		em.refresh(experience);
 		em.remove(getExperiencePro(idExperiencePro));
 		
 	}
@@ -175,7 +184,9 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void removeExtFormation(Long idExtFormation) {
-		em.remove(getExtFormation(idExtFormation));
+		ExterneFormation formation=getExtFormation(idExtFormation);
+		em.refresh(formation);
+		em.remove(formation);
 		
 	}
 	
@@ -194,13 +205,15 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void updateIFormation(InstituteFormation iFormation) {
-		em.persist(iFormation);
+		em.merge(iFormation);
 		
 	}
 
 	@Override
-	public void removeIFormation(Long idIFormation) {
-		em.remove(getInstituteFormation(idIFormation));
+	public void removeIFormation(Long idFormation) {
+		InstituteFormation formation=getInstituteFormation(idFormation);
+		em.refresh(formation);
+		em.remove(formation);
 		
 	}
 
@@ -231,7 +244,9 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void removeRole(Long idRole) {
-		em.remove(getRole(idRole));
+		Role role=getRole(idRole);
+		em.refresh(role);
+		em.remove(role);
 		
 	}
 	
@@ -264,7 +279,9 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void removeStagiaire(Long idstagiaire) {
-		em.remove(getStagiaire(idstagiaire));
+		Stagiaire stagiaire=getStagiaire(idstagiaire);
+		em.refresh(stagiaire);
+		em.remove(stagiaire);
 		
 	}
 	
@@ -295,14 +312,18 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void setCuruculium(Curuculium curuculium, Long idDossier) {
-		getDossier(idDossier).setCv(curuculium);
+		Dossier dossier=getDossier(idDossier);
+		curuculium.setDossier(dossier);
+		dossier.setCv(curuculium);
 		em.persist(curuculium);
 		
 	}
 
 	@Override
 	public void setDossier(Dossier dossier, Long idCandidat) {
-		getCandidat(idCandidat).setDossier(dossier);
+		Candidat candidat=getCandidat(idCandidat);
+		dossier.setCandidat(candidat);
+		candidat.setDossier(dossier);
 		em.persist(dossier);
 		
 	}
@@ -328,7 +349,7 @@ public class InstitueDAOImp implements InstitueDAO{
 
 	@Override
 	public void purgeDataBase() {
-		em.createQuery("delete from  Curuculium").executeUpdate();
+		em.createQuery("delete from Candidat").executeUpdate();
 		
 	}
 	
