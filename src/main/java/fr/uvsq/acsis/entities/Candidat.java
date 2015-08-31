@@ -1,7 +1,6 @@
 package fr.uvsq.acsis.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,7 +12,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import fr.uvsq.acsis.utils.EtatCandidature;
-
+/**
+ * 
+ * @author amine
+ *antité de candidat
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="candidat")
@@ -23,6 +26,10 @@ public class Candidat extends Utilisateur implements Serializable{
 	private Long idCandidat;
 	@OneToOne(mappedBy="candidat")
 	private Dossier dossier;
+	/**
+	 * un candidat peut postuler a une seul formation
+	 * une formation peut étre demandé par diffirent candidat
+	 */
 	@ManyToOne
 	@JoinColumn(name="id_formation")
 	private InstituteFormation formation;
@@ -33,7 +40,7 @@ public class Candidat extends Utilisateur implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Candidat(String nom, String prenom, Date dateNaissance, 
+	public Candidat(String nom, String prenom,String dateNaissance, 
 			String mail) {
 		super(nom, prenom, dateNaissance, mail);
 		etat=EtatCandidature.NON_VALIDE;

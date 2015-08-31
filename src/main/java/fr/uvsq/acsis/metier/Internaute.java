@@ -6,7 +6,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import fr.uvsq.acsis.dao.InstitueDAO;
 import fr.uvsq.acsis.entities.Candidat;
-
+import fr.uvsq.acsis.utils.PasswordGenarateur;
+/**
+ * 
+ * @author amine
+ * implementation de l'interface metier d'un utilisateur non autentifier
+ */
 @Transactional
 public class Internaute implements I_Internaute {
 	InstitueDAO dao;
@@ -22,7 +27,7 @@ public class Internaute implements I_Internaute {
 	public Boolean changePassword(String mail) {
 		try{
 			Candidat candidat = dao.getCandidatByMail(mail);
-			candidat.setPassword(PasswordGenarator.generate());
+			candidat.setPassword(PasswordGenarateur.generate());
 			// send with mail
 			dao.updateCandidat(candidat);
 		
@@ -47,5 +52,17 @@ public class Internaute implements I_Internaute {
 
 	public void setDao(InstitueDAO dao) {
 		this.dao = dao;
+	}
+
+	@Override
+	public Candidat getCandidatByMail(String mail) {
+		// TODO Auto-generated method stub
+		return dao.getCandidatByMail(mail);
+	}
+
+	@Override
+	public void updateCandidature(Candidat candidat) {
+		dao.updateCandidat(candidat);
+		
 	}
 }

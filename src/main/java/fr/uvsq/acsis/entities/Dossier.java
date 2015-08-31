@@ -11,8 +11,11 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * 
+ * @author amine
+ * entité de dossier de candidat
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="dossier")
@@ -20,11 +23,14 @@ public class Dossier implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idDossier;
-	@NotEmpty
 	private String motive;
 	@OneToOne(mappedBy="dossier")
 	private Curuculium cv;
 	@NotNull
+	/**
+	 * un dossier appartein a un candidat
+	 * un candidat a un seul dossier
+	 */
 	@OneToOne
 	@JoinColumn(name="id_candidat")
 	private Candidat candidat;

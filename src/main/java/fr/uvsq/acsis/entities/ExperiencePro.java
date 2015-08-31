@@ -1,7 +1,6 @@
 package fr.uvsq.acsis.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * 
+ * @author amine
+ *entité d'experience proffetionnel dans le cv d'un candidat
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="experience_pro")
@@ -20,14 +21,17 @@ public class ExperiencePro implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idExperiencePro;
-	@NotEmpty
+
 	private String nomEtablisement;
-	@NotEmpty
-	private Date dateDebut;
-	private Date dateFin;
+
+	private String dateDebut;
+	private String dateFin;
 	
 	private String descrition;
 	
+	/**
+	 * un cv contient plusieur experiencePro
+	 */
 	@ManyToOne
 	@JoinColumn(name="id_curuculium")
 	private Curuculium curuculium;
@@ -38,7 +42,7 @@ public class ExperiencePro implements Serializable{
 	
 	}
 	
-	public ExperiencePro(String nomEtablisement, Date dateDebut, Date dateFin,String descrition) {
+	public ExperiencePro(String nomEtablisement, String dateDebut, String dateFin,String descrition) {
 		super();
 		this.nomEtablisement = nomEtablisement;
 		this.dateDebut = dateDebut;
@@ -61,16 +65,16 @@ public class ExperiencePro implements Serializable{
 	public void setNomEtablisement(String nomEtablisement) {
 		this.nomEtablisement = nomEtablisement;
 	}
-	public Date getDateDebut() {
+	public String getDateDebut() {
 		return dateDebut;
 	}
-	public void setDateDebut(Date dateDebut) {
+	public void setDateDebut(String dateDebut) {
 		this.dateDebut = dateDebut;
 	}
-	public Date getDateFin() {
+	public String getDateFin() {
 		return dateFin;
 	}
-	public void setDateFin(Date dateFin) {
+	public void setDateFin(String dateFin) {
 		this.dateFin = dateFin;
 	}
 

@@ -1,7 +1,6 @@
 package fr.uvsq.acsis.entities;
 
 import java.io.Serializable;
-import java.time.Year;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +10,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * 
+ * @author amine
+ *entité de formation des etudiant (peut etre etrangére 
+ *a l'institue
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="externe_formation")
@@ -21,11 +23,10 @@ public class ExterneFormation extends Formation implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idExtFormation;
-	private Year annee;
-	@NotEmpty
+
+	private String annee;
 	@Size(min=10,max=50)
 	private String etablissement;
-	@NotEmpty
 	@Size(min=4,max=15)
 	private String pays;
 	
@@ -34,7 +35,11 @@ public class ExterneFormation extends Formation implements Serializable {
 	private Curuculium curuculium;
 	
 	
-	public ExterneFormation(String nom, String niveau, Long idExtFormation, Year annee, String etablissement,
+	public ExterneFormation() {
+		super();
+
+	}
+	public ExterneFormation(String nom, String niveau, Long idExtFormation, String annee, String etablissement,
 			String pays) {
 		super(nom, niveau);
 		this.idExtFormation = idExtFormation;
@@ -54,12 +59,12 @@ public class ExterneFormation extends Formation implements Serializable {
 	}
 
 
-	public Year getAnnee() {
+	public String getAnnee() {
 		return annee;
 	}
 
 
-	public void setAnnee(Year annee) {
+	public void setAnnee(String annee) {
 		this.annee = annee;
 	}
 

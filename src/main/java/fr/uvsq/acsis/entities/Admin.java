@@ -10,9 +10,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * 
+ * @author amine
+ * entité administrateur de candidature
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="admin")
@@ -20,7 +22,6 @@ public class Admin implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idAdmin;
-	@NotEmpty
 	@Size(min=5,max=40)
 	private String login;
 	@Size(min=5,max=40)

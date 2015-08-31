@@ -1,8 +1,12 @@
 package fr.uvsq.acsis.utils;
-
+/**
+ * 
+ * @author amine
+ * bean de chargement des information d'autentification 
+ */
 public class Autentification {
-	private String email;
-	private String password;
+	private String email="amine@gmail.com";
+	private String password;//="DorHaFWHg";
 	
 	
 	public String getEmail() {

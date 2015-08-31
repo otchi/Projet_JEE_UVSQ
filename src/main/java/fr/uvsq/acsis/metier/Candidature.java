@@ -13,7 +13,11 @@ import fr.uvsq.acsis.entities.Dossier;
 import fr.uvsq.acsis.entities.ExperiencePro;
 import fr.uvsq.acsis.entities.ExterneFormation;
 import fr.uvsq.acsis.entities.InstituteFormation;
-
+/**
+ * 
+ * @author amine
+ * implementation de l'interface metier d'un candidat
+ */
 @Transactional
 public class Candidature implements ICandidature {
 	InstitueDAO dao;

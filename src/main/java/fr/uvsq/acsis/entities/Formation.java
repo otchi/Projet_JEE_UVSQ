@@ -6,16 +6,26 @@ import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * 
+ * @author amine
+ * super class des formation (les formation dans les cv ou
+ * de l'institue)
+ */
 @SuppressWarnings("serial")
 @MappedSuperclass
 public abstract class Formation implements Serializable{
 	@NotEmpty
 	@Size(min=4)
 	private String nom;
-	@NotEmpty
 	private String niveau;
 	
+	
+	public Formation() {
+		super();
+
+		
+	}
 
 	public Formation(String nom, String niveau) {
 		super();

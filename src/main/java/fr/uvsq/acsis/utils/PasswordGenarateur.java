@@ -1,16 +1,44 @@
-package fr.uvsq.acsis.metier;
+package fr.uvsq.acsis.utils;
 
 import java.util.Date;
 import java.util.Random;
-
-public abstract class PasswordGenarator {
+/**
+ * 
+ * @author amine
+ * class de creation de mot de pass aleatoir
+ */
+public abstract class PasswordGenarateur {
+	/**
+	 * creation d'un générateur ayant comme grainne le temp actuel
+	 */
 	private static final Random RANDOM = new Random(new Date().getTime());
+	/**
+	 * majuscule possible
+	 */
 	private static final String STR_MAJ = "ABCDEFGHIGKLMNOPQRSTUVWXYZ";
+	/**
+	 * miniscule possible
+	 */
 	private static final String STR_MIN = "abcdefghigklmnopqrstuvwxyz";
+	/**
+	 * langeur minimal et maximal du mot de pass
+	 */
 	private static final int INF_PASSWORD_LONG = 6;
 	private static final int SUP_PASSWORD_LONG = 12;
+	
+	/**
+	 * le rang maximal (nomber de caractére)
+	 * en génére un nombre entre 0 et 25 puis en prend le caractére qui 
+	 * se trouve a ce rang
+	 */
 	private static final int ALPHABET_BORN = 26;
 
+	
+	/**
+	 * 
+	 * @return
+	 * methode de génération
+	 */
 	public static String generate() {
 		int passwordLenght = 0;
 		StringBuilder password = new StringBuilder();
@@ -38,7 +66,4 @@ public abstract class PasswordGenarator {
 
 	}
 
-	public static void main(String[] args) {
-		System.out.println(PasswordGenarator.generate());
-	}
 }

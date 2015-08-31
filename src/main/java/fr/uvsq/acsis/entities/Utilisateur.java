@@ -1,29 +1,30 @@
 package fr.uvsq.acsis.entities;
 
 import java.io.Serializable;
+import java.text.ParseException;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
-import fr.uvsq.acsis.metier.PasswordGenarator;
-
+import fr.uvsq.acsis.utils.PasswordGenarateur;
+/**
+ * 
+ * @author amine
+ * super class des utilisateur inscrit ou candidat
+ */
 @SuppressWarnings("serial")
 @MappedSuperclass
 public abstract class Utilisateur implements Serializable {
-	@NotEmpty
+
 	@Size(min=2,max=40)
 	private String nom;
-	@NotEmpty
 	@Size(min=2,max=40)
 	private String prenom;
-	private Date dateNaissance;
+	private String dateNaissance;
 	@Column	(unique=true)
 	private String mail;
-	@NotEmpty
 	@Size(min=6)
 	private String password;
 	private Date dateInscription;
@@ -31,16 +32,17 @@ public abstract class Utilisateur implements Serializable {
 	
 	public Utilisateur() {
 		super();
+		
 	
 	}
 	
-	public Utilisateur(String nom, String prenom, Date dateNaissance, String mail) {
+	public Utilisateur(String nom, String prenom, String dateNaissance, String mail) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
 		this.mail = mail;
-		this.password = PasswordGenarator.generate();
+		this.password = PasswordGenarateur.generate();
 		this.dateInscription = new Date();
 	}
 	public String getNom() {
@@ -55,12 +57,13 @@ public abstract class Utilisateur implements Serializable {
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public Date getDateNaissance() {
+	public String getDateNaissance() {
 		return dateNaissance;
 	}
-	public void setDateNaissance(Date dateNaissance) {
+	public void setDateNaissance(String dateNaissance) throws ParseException {
 		this.dateNaissance = dateNaissance;
 	}
+	
 	public String getMail() {
 		return mail;
 	}

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>autentification</title>
 </head>
 <body>
 	<h2 align="center"> Bienvenue sur la plateforme d'inscription de Agriotes Info</h2>
@@ -21,10 +21,10 @@
 					<td>Email :</td>
 					<td><form:input path="email"/> </td>
 				</tr>
-				<tr >
+				 <tr >
 					<td>mot de passe:</td>
 					<td><form:password path="password"/></td>
-				</tr>
+				</tr> 
 				<tr align="center" >
 					<td colspan="5"> <input type="submit" value="valider">  </td>
 				</tr>
@@ -34,7 +34,8 @@
 	</div><br>
 	
 	<br>
-
+<a href="${context}authentification/newPass"> cliqué ici pour avoir un nouveau mot de pass</a>
+<a href="${context}authentification/inscription"> cliqué ici pour avoir un nouveau mot de pass</a>
 	
 </body>
 </html>

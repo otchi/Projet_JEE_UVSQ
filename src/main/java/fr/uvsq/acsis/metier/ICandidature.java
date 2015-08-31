@@ -9,7 +9,11 @@ import fr.uvsq.acsis.entities.Dossier;
 import fr.uvsq.acsis.entities.ExperiencePro;
 import fr.uvsq.acsis.entities.ExterneFormation;
 import fr.uvsq.acsis.entities.InstituteFormation;
-
+/**
+ * 
+ * @author amine
+ * interface metier des operation possible par un candidat autentifié
+ */
 public interface ICandidature {
 	public Long autentification(String mail,String password);
 	public void createDossier(Dossier dossier,Long idCandidat);

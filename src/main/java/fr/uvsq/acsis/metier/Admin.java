@@ -7,8 +7,14 @@ import org.springframework.transaction.annotation.Transactional;
 import fr.uvsq.acsis.dao.InstitueDAO;
 import fr.uvsq.acsis.entities.InstituteFormation;
 
+/**
+ * 
+ * @author amine
+ *implementationde l'interface adminstratuer formation
+ */
 @Transactional
 public class Admin implements IAdmin{
+
 	InstitueDAO dao;
 
 	public void setDao(InstitueDAO dao) {

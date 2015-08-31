@@ -1,7 +1,6 @@
 package fr.uvsq.acsis.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
+/**
+ * 
+ * @author amine
+ *entité des etudiant de l'intitue
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="stagiaire")
@@ -20,7 +21,6 @@ public class Stagiaire extends Utilisateur implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long idStagiaire;
-	@NotEmpty
 	private String certificatDeScolarite;
 	@ManyToOne
 	@JoinColumn(name="id_formation")
@@ -31,7 +31,7 @@ public class Stagiaire extends Utilisateur implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Stagiaire(String nom, String prenom, Date dateNaissance, String mail) {
+	public Stagiaire(String nom, String prenom, String dateNaissance, String mail) {
 		super(nom, prenom, dateNaissance, mail);
 		// TODO Auto-generated constructor stub
 	}

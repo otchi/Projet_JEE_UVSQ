@@ -12,6 +12,11 @@ import fr.uvsq.acsis.entities.InstituteFormation;
 import fr.uvsq.acsis.entities.Role;
 import fr.uvsq.acsis.entities.Stagiaire;
 
+/**
+ * 
+ * @author amine
+ * intéface DAO definie les opperation possible
+ */
 public interface InstitueDAO {
 	/****************************************************/	
 	public void addAdmin(Admin admin);
@@ -89,6 +94,5 @@ public interface InstitueDAO {
 	
 	/****************************************************/
 	
-	public void purgeDataBase();
 
 }

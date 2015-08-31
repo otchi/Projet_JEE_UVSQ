@@ -8,6 +8,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
+/**
+ * 
+ * @author amine
+ *les formationproposé par l'institue
+ */
 @SuppressWarnings("serial")
 @Entity
 @Table(name="institue_formation")
@@ -17,6 +23,11 @@ public class InstituteFormation extends Formation implements Serializable{
 	private Long idInstFormation;
 	private String description;
 	
+	
+	public InstituteFormation() {
+		super();
+
+	}
 	public InstituteFormation(String nom, String niveau,String description) {
 		super(nom, niveau);
 
@@ -38,4 +49,11 @@ public class InstituteFormation extends Formation implements Serializable{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getNiveau()+"--"+getNom();
+	}
+	
+	
 }

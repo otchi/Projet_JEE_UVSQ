@@ -15,9 +15,16 @@ import fr.uvsq.acsis.entities.ExterneFormation;
 import fr.uvsq.acsis.entities.InstituteFormation;
 import fr.uvsq.acsis.entities.Role;
 import fr.uvsq.acsis.entities.Stagiaire;
-
+/**
+ * 
+ * @author amine
+ * implemention de la 
+ *DAO
+ */
 public class InstitueDAOImp implements InstitueDAO{
-	
+	/**
+	 * contexte de persistance charger depuis le context spring
+	 */
 	@PersistenceContext
 	private EntityManager em;
 	/**********************************************************/
@@ -225,7 +232,7 @@ public class InstitueDAOImp implements InstitueDAO{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<InstituteFormation> allFormation() {
-		return em.createQuery("select f from Role InstituteFormation f")
+		return em.createQuery("select f from InstituteFormation f")
 				.getResultList();
 	}
 
@@ -347,11 +354,6 @@ public class InstitueDAOImp implements InstitueDAO{
 		
 	}
 
-	@Override
-	public void purgeDataBase() {
-		em.createQuery("delete from Candidat").executeUpdate();
-		
-	}
 	
 	
 	/***************************************************************/
